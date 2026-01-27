@@ -575,15 +575,16 @@ ul {
 .gallery-item {
     height: 350px;
     background-color: #000;
-    border-radius: 4px;
-    background-size: contain;
+    border-radius: 8px;
+    background-size: cover;
+    /* MUDANÇA PARA COVER GLOBAL */
     background-repeat: no-repeat;
     background-position: center;
     transition: var(--transition);
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    border: 1px solid #222;
+    border: 1px solid var(--glass-border);
 }
 
 .gallery-video {
@@ -598,9 +599,10 @@ ul {
 }
 
 .gallery-item:hover {
-    transform: translateY(-5px);
-    border-color: var(--color-primary);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    transform: translateY(-10px) scale(1.03);
+    /* Zoom sutil e elevação */
+    border-color: var(--color-accent);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
 }
 
 .gallery-item .overlay {
@@ -966,11 +968,17 @@ ul {
 }
 
 .team-img {
+    width: 100%;
     height: 400px;
     background-size: cover;
     background-position: center;
     filter: grayscale(100%);
     transition: var(--transition);
+}
+
+.team-card:hover .team-img {
+    filter: grayscale(0%);
+    transform: scale(1.05);
 }
 
 .team-img-container {
@@ -1204,151 +1212,6 @@ ul {
     text-align: center;
 }
 
-@media (max-width: 768px) {
-    .section {
-        padding: 4rem 0;
-    }
-
-    .top-bar {
-        display: none;
-        /* Simplifica o topo no mobile */
-    }
-
-    /* Full Mobile Header */
-    .header {
-        padding: 1rem 0;
-        justify-content: center;
-    }
-
-    .header-container {
-        flex-direction: row;
-        /* Volta a ser linha para logo e menu nas pontas */
-        justify-content: space-between;
-        border-bottom: none;
-        padding-bottom: 0;
-    }
-
-    .logo {
-        font-size: 1.6rem;
-    }
-
-    .mobile-menu-btn {
-        display: flex;
-        /* Ativa o hambúrguer */
-    }
-
-    /* Transform Nav into Mobile Sidebar */
-    .nav {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 80%;
-        height: 100vh;
-        background-color: rgba(5, 5, 5, 0.98);
-        backdrop-filter: blur(20px);
-        z-index: 1050;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: var(--transition);
-        margin-top: 0;
-        border-left: 1px solid var(--glass-border);
-    }
-
-    .nav.active {
-        right: 0;
-    }
-
-    .nav-list {
-        flex-direction: column;
-        gap: 2.5rem;
-        text-align: center;
-    }
-
-    .nav-list a {
-        font-size: 1.2rem;
-        letter-spacing: 4px;
-        opacity: 0.9;
-    }
-
-    /* Fix All Grids */
-    .vip-content,
-    .contact-container,
-    .testimonials-grid,
-    .team-grid,
-    .services-grid,
-    .produtos-grid {
-        grid-template-columns: 1fr !important;
-        gap: 2.5rem;
-    }
-
-    .gallery-grid,
-    .portfolio-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 10px;
-    }
-
-    .gallery-item {
-        height: 180px;
-    }
-
-    /* Hero Refinement */
-    .hero {
-        height: 100vh;
-        /* Mantém impacto total */
-    }
-
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero p {
-        font-size: 0.95rem;
-        border-left: 2px solid var(--color-accent);
-        margin: 0 0 2rem 0;
-        text-align: left;
-        padding-left: 1rem;
-    }
-
-    /* Contact Details */
-    .contact-info {
-        text-align: left;
-    }
-
-    .info-list li {
-        font-size: 0.9rem;
-    }
-
-    .map-container {
-        height: 250px;
-    }
-
-    /* Modal Mobile Pro */
-    .modal-content {
-        width: 100%;
-        height: 100%;
-        border-radius: 0;
-        max-height: 100vh;
-    }
-
-    .modal-body {
-        grid-template-columns: 1fr !important;
-    }
-
-    .modal-visual img {
-        height: 300px;
-    }
-
-    .modal-info {
-        padding: 2rem 1.5rem;
-    }
-
-    .btn {
-        padding: 1rem 1.5rem;
-        font-size: 0.9rem;
-    }
-}
-
 /* Barber Portfolio Modal */
 .portfolio-modal {
     padding: 3rem;
@@ -1407,24 +1270,6 @@ ul {
     color: var(--color-accent);
 }
 
-@media (max-width: 768px) {
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .portfolio-modal {
-        padding: 2rem 1rem;
-    }
-
-    .portfolio-item {
-        height: 200px;
-    }
-
-    .modal-portfolio-header h2 {
-        font-size: 1.8rem;
-    }
-}
-
 /* Enhanced Modal Style Elements */
 .modal-features,
 .modal-fashion {
@@ -1473,9 +1318,112 @@ ul {
     color: var(--color-text-muted);
 }
 
+
+/* ============================================================ */
+/* THE FINAL BOSS OF RESPONSIVENESS (MOBILE 2026)             */
+/* ============================================================ */
+
 @media (max-width: 768px) {
-    .look-card {
-        padding: 0.75rem;
-        font-size: 0.85rem;
+    .section {
+        padding: 3rem 0;
+    }
+
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* THE CURE FOR BROKEN CARDS (TEAM & GALLERY) */
+    .team-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2.5rem;
+    }
+
+    .team-img {
+        width: 100% !important;
+        height: 380px !important;
+        background-size: cover !important;
+        background-position: center !important;
+        filter: grayscale(0);
+        /* Mais vida no mobile */
+    }
+
+    .gallery-grid,
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+    }
+
+    .gallery-item {
+        height: 180px !important;
+        background-size: cover !important;
+        /* PREENCHE TOTALMENTE */
+        border-radius: 12px;
+    }
+
+    .gallery-item .overlay {
+        transform: translateY(0);
+        /* Sempre visível no mobile */
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+        padding: 0.8rem;
+    }
+
+    /* HEADER & NAV Sidebar */
+    .header-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .logo {
+        font-size: 1.4rem;
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        height: 100vh;
+        z-index: 9999;
+        background: rgba(5, 5, 5, 0.98);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition);
+    }
+
+    .nav.active {
+        right: 0;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+
+    /* ALL OTHER GRIDS */
+    .vip-content,
+    .contact-container,
+    .testimonials-grid,
+    .services-grid,
+    .produtos-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2.5rem;
+    }
+
+    /* MODAL */
+    .modal-content {
+        width: 100% !important;
+        height: 100% !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+    }
+
+    .modal-body {
+        grid-template-columns: 1fr !important;
+    }
+
+    .modal-visual img {
+        height: 250px !important;
     }
 }
