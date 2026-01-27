@@ -298,12 +298,24 @@
                     <h2 id="modal-title" class="highlight">O CORTE</h2>
                     <p id="modal-history" class="modal-history"></p>
                     
+                    <div class="modal-features">
+                        <h3>Características:</h3>
+                        <p id="modal-features-text"></p>
+                    </div>
+
+                    <div class="modal-fashion">
+                        <h3>O QUE VESTIR (ESTILOS):</h3>
+                        <div class="look-options" id="modal-looks">
+                            <!-- Looks injected by JS -->
+                        </div>
+                    </div>
+
                     <div class="modal-stats">
                         <h3>Popularidade</h3>
                         <div class="stat-bar-container">
                             <div id="modal-stat-bar" class="stat-bar"></div>
                         </div>
-                        <span id="modal-stat-text">85% dos clientes VIP</span>
+                        <span id="modal-stat-text">85% de aprovação</span>
                     </div>
 
                     <div class="modal-celebrities">
@@ -319,23 +331,41 @@
 
     <script type="module" src="main.js"></script>
     <script>
-        // Data for the modals (Updated with 2024-2026 real trends)
+        // Data for the modals (Updated with Fashion & Characteristics)
         const styleData = {
             "high fade": {
                 title: "HIGH FADE (DEGRADÊ ALTO)",
-                history: "Originário das barbearias americanas dos anos 40, o High Fade tornou-se o símbolo da precisão moderna. Em 2026, é a base para a maioria dos cortes curtos masculinos, oferecendo um perfil limpo e agressivo.",
+                history: "O símbolo da precisão moderna. Transmite autoridade e limpeza visual absoluta.",
+                features: "Laterais extremamente raspadas começando alto, topo com volume variável e linhas de contorno ultra-definidas.",
+                looks: [
+                    { title: "Street Luxury", desc: "Camiseta oversized premium, correntes de prata e sneakers de edição limitada." },
+                    { title: "Sport Tech", desc: "Conjuntos de nylon high-tech, corta-vento e um visual focado em performance." },
+                    { title: "Club Night", desc: "Jaqueta de couro slim, jeans preto e botas chelsea para um visual noturno agressivo." }
+                ],
                 popularity: "94%",
                 celebs: "Michael B. Jordan, David Beckham, Usher"
             },
             "mid fade": {
                 title: "MID SIGNATURE FADE",
-                history: "O equilíbrio perfeito entre o clássico e o ousado. Atualmente, o Mid Fade é o corte mais versátil do portfólio, integrando-se perfeitamente com texturas no topo (Texture Crops).",
+                history: "O equilíbrio perfeito. Versátil para o executivo que busca modernidade sem perder a sobriedade.",
+                features: "Transição suave começando no meio das têmporas, topo texturizado para movimento natural.",
+                looks: [
+                    { title: "Business Sharp", desc: "Costume slim fit navy, camisa branca de sarja e sapato loafer de couro." },
+                    { title: "Smart Casual", desc: "Polo de tricô, calça de linho e óculos de sol clássicos." },
+                    { title: "Modern Minimalist", desc: "T-shirt básica de alta gramatura em tons terra e calça chino." }
+                ],
                 popularity: "89%",
                 celebs: "Neymar Jr, Zayn Malik, Ryan Reynolds"
             },
             "low fade": {
                 title: "LOW PRECISION FADE",
-                history: "Para o homem que valoriza a sutileza. O Low Fade foca nos detalhes ao redor da orelha e nuca, sendo a escolha preferida para executivos e profissionais que buscam elegância discreta.",
+                history: "Para o homem que valoriza o detalhe sutil. A elegância mora na transição leve perto da nuca.",
+                features: "Raspagem discreta apenas nos contornos da orelha e nuca, mantendo a densidade lateral.",
+                looks: [
+                    { title: "Old Money", desc: "Suéter de cashmere sobre os ombros, calça de alfaiataria e sapato dockside." },
+                    { title: "Classic Gentleman", desc: "Blazer estruturado, camisa de botão oxford e relógio de pulso clássico." },
+                    { title: "Coffee Date", desc: "Cardigan leve, calça jeans raw denim e um visual despojado porém rico." }
+                ],
                 popularity: "78%",
                 celebs: "Drake, Justin Timberlake, Chris Hemsworth"
             }
@@ -349,7 +379,6 @@
                 const title = item.querySelector('h4').innerText.toLowerCase();
                 const bg = window.getComputedStyle(item).backgroundImage.slice(5, -2).replace(/"/g, "");
                 
-                // Find matching data or use default
                 let data = styleData["high fade"];
                 for (let key in styleData) {
                     if (title.includes(key)) data = styleData[key];
@@ -358,9 +387,19 @@
                 document.getElementById("modal-img").src = bg;
                 document.getElementById("modal-title").innerText = data.title;
                 document.getElementById("modal-history").innerText = data.history;
+                document.getElementById("modal-features-text").innerText = data.features;
                 document.getElementById("modal-stat-bar").style.width = data.popularity;
                 document.getElementById("modal-stat-text").innerText = `${data.popularity} de aprovação entre o público Premium`;
                 document.getElementById("modal-celebs").innerText = data.celebs;
+
+                const looksContainer = document.getElementById("modal-looks");
+                looksContainer.innerHTML = "";
+                data.looks.forEach(look => {
+                    const lookDiv = document.createElement('div');
+                    lookDiv.className = "look-card";
+                    lookDiv.innerHTML = `<strong>${look.title}:</strong> <span>${look.desc}</span>`;
+                    looksContainer.appendChild(lookDiv);
+                });
 
                 modal.style.display = "flex";
             });
