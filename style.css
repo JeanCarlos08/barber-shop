@@ -1031,10 +1031,24 @@ ul {
     border: 1px solid var(--glass-border);
     max-width: 900px;
     width: 100%;
+    max-height: 90vh;
+    /* Garante que o modal não passe da altura da tela */
     border-radius: 20px;
     position: relative;
-    overflow: hidden;
+    overflow-y: auto;
+    /* Permite scroll dentro do modal */
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-accent) transparent;
     animation: modalSlide 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background-color: var(--color-accent);
+    border-radius: 10px;
 }
 
 @keyframes modalSlide {
@@ -1135,10 +1149,24 @@ ul {
     }
 
     .modal-visual img {
-        min-height: 300px;
+        height: auto;
+        min-height: 250px;
+        max-height: 350px;
     }
 
     .modal-info {
-        padding: 2.5rem;
+        padding: 1.5rem;
+    }
+
+    .modal-history {
+        font-size: 0.95rem;
+        margin: 1rem 0;
+        padding-left: 1rem;
+    }
+
+    .modal-btn {
+        position: sticky;
+        bottom: 1rem;
+        margin-top: 1rem;
     }
 }
