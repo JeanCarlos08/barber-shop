@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BarberShop Premium | A Realeza do Corte</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Oswald:wght@300;400;500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container top-bar-container">
+            <span>Sua melhor versão começa aqui ✂️</span>
+            <div class="top-links">
+                <a href="#">Área VIP</a> | <a href="#contact">Localização</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+      <div class="container header-container">
+        <button class="mobile-menu-btn" aria-label="Abrir Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <a href="#" class="logo">BARBER<span style="color: var(--color-accent);">SHOP</span> <br><small style="color: var(--color-accent); letter-spacing: 5px;">EST. 2026</small></a>
+
+        <div class="header-actions">
+             <a href="#contact" class="btn btn-primary top-btn">AGENDAR</a>
+        </div>
+      </div>
+      <nav class="nav">
+          <ul class="nav-list">
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#services">SERVIÇOS</a></li>
+            <li><a href="#team">EQUIPE</a></li>
+            <li><a href="#vip">CLUBE VIP</a></li>
+            <li><a href="#gallery">GALERIA</a></li>
+            <li><a href="#testimonials">FEEDBACK</a></li>
+            <li><a href="#contact">CONTATO</a></li>
+          </ul>
+        </nav>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section id="home" class="hero">
+        <video autoplay muted loop playsinline class="hero-video">
+          <source src="videos/5587227-hd_1920_1080_30fps.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="container hero-content" data-reveal>
+          <h4>SINCE 2026</h4>
+          <h1>A EXPERIÊNCIA <br> <span class="serif-highlight">PREMIUM</span></h1>
+          <p>Onde a tradição da navalha encontra o estilo moderno. Um refúgio de sofisticação para o homem contemporâneo.</p>
+          <div class="hero-btns">
+            <a href="#contact" class="btn btn-primary">RESERVAR CADEIRA</a>
+            <a href="#vip" class="btn btn-outline">SEJA UM EXPERT</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services -->
+      <section id="services" class="services section">
+        <div class="container">
+          <h2 class="section-title" data-reveal>NOSSOS <span class="highlight">SERVIÇOS</span></h2>
+          <div class="services-grid">
+            <div class="service-card" data-reveal>
+              <div class="service-img-container">
+                <video autoplay muted loop playsinline class="service-video">
+                  <source src="videos/4178108-hd_1920_1080_30fps.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="icon">✂️</div>
+              <h3>Cortes de Elite</h3>
+              <p>Do clássico militar ao moderno degradê com acabamento cirúrgico.</p>
+              <span class="price">R$ 50,00</span>
+            </div>
+            <div class="service-card" data-reveal>
+              <div class="service-img" style="background-image: url('assets/afro_fade_1769035226942.png')"></div>
+              <div class="icon">🌀</div>
+              <h3>Texturização Afro</h3>
+              <p>Domínio total em Nudred, Twists e Waves com finalização premium.</p>
+              <span class="price">R$ 60,00</span>
+            </div>
+            <div class="service-card" data-reveal>
+              <div class="service-img" style="background-image: url('imagem/pexels-rdne-7697200.jpg')"></div>
+              <div class="icon">☕</div>
+              <h3>Ritual da Barba</h3>
+              <p>Toalha quente, óleos essenciais e o deslizar suave da navalha.</p>
+              <span class="price">R$ 40,00</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Team Section -->
+      <section id="team" class="team section">
+        <div class="container">
+            <h2 class="section-title" data-reveal>OS <span class="highlight">MESTRES</span></h2>
+            <p class="section-subtitle" data-reveal>Especialistas prontos para elevar o seu visual ao próximo nível.</p>
+            <div class="team-grid">
+                <div class="team-card" data-reveal>
+                    <div class="team-img" style="background-image: url('imagem/pexels-rdne-7697445.jpg')"></div>
+                    <div class="team-info">
+                        <h3>MARCOS "THE ACE"</h3>
+                        <span>Elite Master Barber</span>
+                    </div>
+                </div>
+                <div class="team-card" data-reveal>
+                    <div class="team-img" style="background-image: url('imagem/pexels-leonardokfn-7781850.jpg')"></div>
+                    <div class="team-info">
+                        <h3>FELIPE "GOLDEN HANDS"</h3>
+                        <span>Afro Specialist</span>
+                    </div>
+                </div>
+                <div class="team-card" data-reveal>
+                    <div class="team-img" style="background-image: url('imagem/pexels-thgusstavo-2881253.jpg')"></div>
+                    <div class="team-info">
+                        <h3>RICARDO "BOSS"</h3>
+                        <span>Visagismo Diretor</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </section>
+
+      <!-- VIP Club Section -->
+      <section id="vip" class="vip-section section">
+        <div class="container">
+            <div class="vip-content" data-reveal>
+                <div class="vip-text">
+                    <h2 class="section-title">CLUBE <span class="highlight">O EXPERT</span></h2>
+                    <p>Um clube para quem não abre mão da excelência. Cortes ilimitados e benefícios que você merece.</p>
+                    <ul class="vip-list">
+                        <li><span class="icon">💎</span> Acesso Prioritário</li>
+                        <li><span class="icon">🍺</span> Bar Open (Cortesia)</li>
+                        <li><span class="icon">💈</span> Visagismo Grátis</li>
+                        <li><span class="icon">🎁</span> Mimos Mensais</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">ENTRAR PARA O CLUBE</a>
+                </div>
+                <div class="vip-image" style="background-image: url('https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=800&q=80');"></div>
+            </div>
+        </div>
+      </section>
+
+      <!-- Gallery -->
+      <section id="gallery" class="gallery section">
+        <div class="container">
+          <h2 class="section-title" data-reveal>GALERIA <span class="highlight">NA RÉGUA</span></h2>
+          
+          <div class="gallery-category" data-reveal>
+            <h3 class="category-title">Cortes Tendência</h3>
+            <div class="gallery-grid">
+                <div class="gallery-item" style="background-image: url('imagem/gallery_warm_fade.jpg')">
+                    <div class="overlay"><h4>High Performance Fade</h4></div>
+                </div>
+                <div class="gallery-item" style="background-image: url('assets/soccer_platinum_1769035273009.png')">
+                    <div class="overlay"><h4>Mid Signature Fade</h4></div>
+                </div>
+                <div class="gallery-item" style="background-image: url('imagem/low_fade_custom.jpg')">
+                    <div class="overlay"><h4>Low Precision Fade</h4></div>
+                </div>
+            </div>
+          </div>
+
+          <div class="gallery-category" data-reveal>
+            <h3 class="category-title">A Arte nos Detalhes</h3>
+            <div class="gallery-grid">
+                <div class="gallery-item" style="background-image: url('imagem/gallery_action_brush.jpg')">
+                    <div class="overlay"><h4>Refinamento Final</h4></div>
+                </div>
+                <div class="gallery-item" style="background-image: url('assets/soccer_geometric_1769035288447.png')">
+                    <div class="overlay"><h4>Linhas Geométricas</h4></div>
+                </div>
+                <div class="gallery-item" style="background-image: url('assets/soccer_mohawk_1769035304234.png')">
+                    <div class="overlay"><h4>Mohawk Moderno</h4></div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section id="testimonials" class="testimonials section">
+          <div class="container">
+              <h2 class="section-title" data-reveal>VOZ DOS <span class="highlight">CLIENTES</span></h2>
+              <div class="testimonials-grid">
+                  <div class="testimonial-card" data-reveal>
+                      <div class="stars">★★★★★</div>
+                      <p>"Absolutamente impecável. O tratamento VIP e a precisão do corte são de outro nível. O melhor da cidade."</p>
+                      <div class="client-info">
+                          <strong>Bruno Silva</strong>
+                          <span>CEO HubTech</span>
+                      </div>
+                  </div>
+                  <div class="testimonial-card" data-reveal>
+                      <div class="stars">★★★★★</div>
+                      <p>"O ambiente 'Dark' traz uma calma e exclusividade que não encontrei em outro lugar. Nota 10!"</p>
+                      <div class="client-info">
+                          <strong>André Santos</strong>
+                          <span>Advogado Senior</span>
+                      </div>
+                  </div>
+                  <div class="testimonial-card" data-reveal>
+                      <div class="stars">★★★★★</div>
+                      <p>"O clube de assinatura foi a melhor coisa que inventaram. Meu visual está sempre perfeito agora."</p>
+                      <div class="client-info">
+                          <strong>Carlos Oliveira</strong>
+                          <span>Art Director</span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="contact section">
+        <div class="container contact-container">
+          <div class="contact-info" data-reveal>
+            <h2 class="section-title">SUA <span class="highlight">CADEIRA</span><br>ESPERA POR VOCÊ</h2>
+            <p>Tradição, Whisky e Navalha. Venha nos visitar.</p>
+            <ul class="info-list">
+              <li><strong>LOCAL:</strong> Av. Paulista, 1000 - Exclusive Floor</li>
+              <li><strong>HORÁRIO:</strong> Seg a Sáb das 09h às 21h</li>
+              <li><strong>CONTATO:</strong> (11) 99999-9999</li>
+            </ul>
+             <div class="social-links">
+                <a href="#">INSTAGRAM</a>
+                <a href="#">WHATSAPP</a>
+             </div>
+          </div>
+          <div class="map-container" data-reveal>
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.197!2d-46.658!3d-23.561!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDMzJzQwLjAiUyA0NsKwMzknMjguOCJX!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr" 
+                width="100%" 
+                height="450" 
+                style="border:0; border-radius: 20px; filter: grayscale(1) invert(0.9) contrast(1.2);" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 BarberShop Premium. Design for the Elite.</p>
+            <p style="font-size: 0.7rem; margin-top: 10px; opacity: 0.5; letter-spacing: 2px;">DESENVOLVIDO POR <span style="color: var(--color-accent);">JEAN CARLOS</span></p>
+        </div>
+    </footer>
+
+    <!-- Service Detail Modal -->
+    <div id="service-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <div class="modal-visual">
+                    <img id="modal-img" src="" alt="Corte">
+                </div>
+                <div class="modal-info">
+                    <h2 id="modal-title" class="highlight">O CORTE</h2>
+                    <p id="modal-history" class="modal-history"></p>
+                    
+                    <div class="modal-stats">
+                        <h3>Popularidade</h3>
+                        <div class="stat-bar-container">
+                            <div id="modal-stat-bar" class="stat-bar"></div>
+                        </div>
+                        <span id="modal-stat-text">85% dos clientes VIP</span>
+                    </div>
+
+                    <div class="modal-celebrities">
+                        <h3>Inspirado por:</h3>
+                        <p id="modal-celebs">Neymar, Cristiano Ronaldo, Drake</p>
+                    </div>
+
+                    <a href="#contact" class="btn btn-primary modal-btn">RESERVAR ESTE ESTILO</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+    <script>
+        // Data for the modals (Updated with 2024-2026 real trends)
+        const styleData = {
+            "high fade": {
+                title: "HIGH FADE (DEGRADÊ ALTO)",
+                history: "Originário das barbearias americanas dos anos 40, o High Fade tornou-se o símbolo da precisão moderna. Em 2026, é a base para a maioria dos cortes curtos masculinos, oferecendo um perfil limpo e agressivo.",
+                popularity: "94%",
+                celebs: "Michael B. Jordan, David Beckham, Usher"
+            },
+            "mid fade": {
+                title: "MID SIGNATURE FADE",
+                history: "O equilíbrio perfeito entre o clássico e o ousado. Atualmente, o Mid Fade é o corte mais versátil do portfólio, integrando-se perfeitamente com texturas no topo (Texture Crops).",
+                popularity: "89%",
+                celebs: "Neymar Jr, Zayn Malik, Ryan Reynolds"
+            },
+            "low fade": {
+                title: "LOW PRECISION FADE",
+                history: "Para o homem que valoriza a sutileza. O Low Fade foca nos detalhes ao redor da orelha e nuca, sendo a escolha preferida para executivos e profissionais que buscam elegância discreta.",
+                popularity: "78%",
+                celebs: "Drake, Justin Timberlake, Chris Hemsworth"
+            }
+        };
+
+        const modal = document.getElementById("service-modal");
+        const closeModal = document.querySelector(".close-modal");
+
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const title = item.querySelector('h4').innerText.toLowerCase();
+                const bg = window.getComputedStyle(item).backgroundImage.slice(5, -2).replace(/"/g, "");
+                
+                // Find matching data or use default
+                let data = styleData["high fade"];
+                for (let key in styleData) {
+                    if (title.includes(key)) data = styleData[key];
+                }
+
+                document.getElementById("modal-img").src = bg;
+                document.getElementById("modal-title").innerText = data.title;
+                document.getElementById("modal-history").innerText = data.history;
+                document.getElementById("modal-stat-bar").style.width = data.popularity;
+                document.getElementById("modal-stat-text").innerText = `${data.popularity} de aprovação entre o público Premium`;
+                document.getElementById("modal-celebs").innerText = data.celebs;
+
+                modal.style.display = "flex";
+            });
+        });
+
+        closeModal.onclick = () => modal.style.display = "none";
+        window.onclick = (event) => {
+            if (event.target == modal) modal.style.display = "none";
+        };
+    </script>
+  </body>
+</html>
