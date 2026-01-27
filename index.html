@@ -187,8 +187,11 @@
           <div class="gallery-category" data-reveal>
             <h3 class="category-title">A Arte nos Detalhes</h3>
             <div class="gallery-grid">
-                <div class="gallery-item" style="background-image: url('imagem/gallery_action_brush.jpg')">
-                    <div class="overlay"><h4>Refinamento Final</h4></div>
+                <div class="gallery-item video-item" data-video="videos/9737999-uhd_3840_2160_24fps.mp4">
+                    <video autoplay muted loop playsinline class="gallery-video">
+                        <source src="videos/9737999-uhd_3840_2160_24fps.mp4" type="video/mp4">
+                    </video>
+                    <div class="overlay"><h4>Refinamento Detalhado</h4></div>
                 </div>
                 <div class="gallery-item" style="background-image: url('assets/soccer_geometric_1769035288447.png')">
                     <div class="overlay"><h4>Linhas Geométricas</h4></div>
@@ -431,7 +434,15 @@
         document.querySelectorAll('.gallery-item').forEach(item => {
             item.addEventListener('click', () => {
                 const title = item.querySelector('h4').innerText;
-                const bg = window.getComputedStyle(item).backgroundImage.slice(5, -2).replace(/"/g, "");
+                let bg = "";
+                
+                if (item.classList.contains('video-item')) {
+                    // For videos, we use the action brush image as a high-quality placeholder in the modal
+                    bg = "imagem/gallery_action_brush.jpg";
+                } else {
+                    bg = window.getComputedStyle(item).backgroundImage.slice(5, -2).replace(/"/g, "");
+                }
+                
                 openStyleDetails(title, bg);
             });
         });
