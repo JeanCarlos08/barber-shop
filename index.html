@@ -334,7 +334,7 @@
         // Data for the modals (Updated with Fashion & Characteristics)
         const styleData = {
             "high fade": {
-                title: "HIGH FADE (DEGRADÊ ALTO)",
+                title: "HIGH PERFORMANCE FADE",
                 history: "O símbolo da precisão moderna. Transmite autoridade e limpeza visual absoluta.",
                 features: "Laterais extremamente raspadas começando alto, topo com volume variável e linhas de contorno ultra-definidas.",
                 looks: [
@@ -368,40 +368,71 @@
                 ],
                 popularity: "78%",
                 celebs: "Drake, Justin Timberlake, Chris Hemsworth"
+            },
+            "afro": {
+                title: "PREMIUM AFRO TEXTURE",
+                history: "Celebração da herança e da textura natural com um acabamento arquitetônico moderno.",
+                features: "Nudred ou Sponge Twists definidos, contornos (taper) cirúrgicos e volumetria estratégica.",
+                looks: [
+                    { title: "Urban Creative", desc: "Jaqueta bomber colorida, calça cargo e acessórios em ouro/bronze." },
+                    { title: "Bold Formal", desc: "Terno de veludo ou linho em cores vibrantes e camisa gola alta." },
+                    { title: "Summer Vibe", desc: "Camisa de botão estampada aberta, shorts de alfaiataria e sandálias de couro premium." }
+                ],
+                popularity: "85%",
+                celebs: "Burna Boy, Odell Beckham Jr, Khalid"
+            },
+            "ritual": {
+                title: "RITUAL NAVALHA & TOALHA",
+                history: "A arte ancestral da barbearia. Não é apenas estética, é um momento de terapia e relaxamento.",
+                features: "Alinhamento perfeito com navalha, hidratação profunda com óleos e toalha quente massageadora.",
+                looks: [
+                    { title: "Classic Dandy", desc: "Colete de alfaiataria, gravata borboleta e relógio de bolso." },
+                    { title: "Modern Professional", desc: "Camisa social impecável, calça slim cinza e cinto de couro italiano." },
+                    { title: "Weekend CEO", desc: "Polo branca, calça jeans premium e óculos escuros de grife." }
+                ],
+                popularity: "98%",
+                celebs: "Tom Hardy, George Clooney, Idris Elba"
             }
         };
 
         const modal = document.getElementById("service-modal");
         const closeModal = document.querySelector(".close-modal");
 
+        function openStyleDetails(titleStr, bgSrc) {
+            const lowTitle = titleStr.toLowerCase();
+            let data = styleData["high fade"];
+            
+            if (lowTitle.includes("high")) data = styleData["high fade"];
+            else if (lowTitle.includes("mid")) data = styleData["mid fade"];
+            else if (lowTitle.includes("low")) data = styleData["low fade"];
+            else if (lowTitle.includes("afro") || lowTitle.includes("textu") || lowTitle.includes("twists")) data = styleData["afro"];
+            else if (lowTitle.includes("ritual") || lowTitle.includes("barba") || lowTitle.includes("navalha")) data = styleData["ritual"];
+
+            document.getElementById("modal-img").src = bgSrc;
+            document.getElementById("modal-title").innerText = data.title;
+            document.getElementById("modal-history").innerText = data.history;
+            document.getElementById("modal-features-text").innerText = data.features;
+            document.getElementById("modal-stat-bar").style.width = data.popularity;
+            document.getElementById("modal-stat-text").innerText = `${data.popularity} de aprovação entre o público Premium`;
+            document.getElementById("modal-celebs").innerText = data.celebs;
+
+            const looksContainer = document.getElementById("modal-looks");
+            looksContainer.innerHTML = "";
+            data.looks.forEach(look => {
+                const lookDiv = document.createElement('div');
+                lookDiv.className = "look-card";
+                lookDiv.innerHTML = `<strong>${look.title}:</strong> <span>${look.desc}</span>`;
+                looksContainer.appendChild(lookDiv);
+            });
+
+            modal.style.display = "flex";
+        }
+
         document.querySelectorAll('.gallery-item').forEach(item => {
             item.addEventListener('click', () => {
-                const title = item.querySelector('h4').innerText.toLowerCase();
+                const title = item.querySelector('h4').innerText;
                 const bg = window.getComputedStyle(item).backgroundImage.slice(5, -2).replace(/"/g, "");
-                
-                let data = styleData["high fade"];
-                for (let key in styleData) {
-                    if (title.includes(key)) data = styleData[key];
-                }
-
-                document.getElementById("modal-img").src = bg;
-                document.getElementById("modal-title").innerText = data.title;
-                document.getElementById("modal-history").innerText = data.history;
-                document.getElementById("modal-features-text").innerText = data.features;
-                document.getElementById("modal-stat-bar").style.width = data.popularity;
-                document.getElementById("modal-stat-text").innerText = `${data.popularity} de aprovação entre o público Premium`;
-                document.getElementById("modal-celebs").innerText = data.celebs;
-
-                const looksContainer = document.getElementById("modal-looks");
-                looksContainer.innerHTML = "";
-                data.looks.forEach(look => {
-                    const lookDiv = document.createElement('div');
-                    lookDiv.className = "look-card";
-                    lookDiv.innerHTML = `<strong>${look.title}:</strong> <span>${look.desc}</span>`;
-                    looksContainer.appendChild(lookDiv);
-                });
-
-                modal.style.display = "flex";
+                openStyleDetails(title, bg);
             });
         });
 
@@ -410,17 +441,29 @@
             "marcos": {
                 name: "MARCOS 'THE ACE'",
                 specialty: "Especialista em Fade & Barba",
-                portfolio: ["imagem/marcos_portfolio_1.jpg", "imagem/low_fade_custom.jpg", "assets/afro_fade_1769035226942.png"]
+                portfolio: [
+                    { src: "imagem/marcos_portfolio_1.jpg", type: "ritual" },
+                    { src: "imagem/low_fade_custom.jpg", type: "low fade" },
+                    { src: "assets/afro_fade_1769035226942.png", type: "high fade" }
+                ]
             },
             "felipe": {
                 name: "FELIPE 'GOLDEN HANDS'",
                 specialty: "Mestre em Cortes Afro & Texturização",
-                portfolio: ["assets/afro_twists_1769035242961.png", "assets/afro_waves_1769035258742.png", "imagem/gallery_action_brush.jpg"]
+                portfolio: [
+                    { src: "assets/afro_twists_1769035242961.png", type: "afro" },
+                    { src: "assets/afro_waves_1769035258742.png", type: "afro" },
+                    { src: "imagem/gallery_action_brush.jpg", type: "mid fade" }
+                ]
             },
             "ricardo": {
                 name: "RICARDO 'BOSS'",
                 specialty: "Visagismo & Consultoria de Estilo",
-                portfolio: ["imagem/pexels-thgusstavo-2881253.jpg", "assets/soccer_geometric_1769035288447.png", "assets/soccer_mohawk_1769035304234.png"]
+                portfolio: [
+                    { src: "imagem/pexels-thgusstavo-2881253.jpg", type: "ritual" },
+                    { src: "assets/soccer_geometric_1769035288447.png", type: "mid fade" },
+                    { src: "assets/soccer_mohawk_1769035304234.png", type: "high fade" }
+                ]
             }
         };
 
@@ -438,11 +481,19 @@
                 
                 const grid = document.getElementById("barber-portfolio-items");
                 grid.innerHTML = "";
-                data.portfolio.forEach(imgSrc => {
-                    const img = document.createElement('div');
-                    img.className = "portfolio-item";
-                    img.style.backgroundImage = `url('${imgSrc}')`;
-                    grid.appendChild(img);
+                data.portfolio.forEach(item => {
+                    const el = document.createElement('div');
+                    el.className = "portfolio-item";
+                    el.style.backgroundImage = `url('${item.src}')`;
+                    el.style.cursor = "pointer";
+                    el.title = "Clique para ver detalhes do estilo";
+                    
+                    el.addEventListener('click', (e) => {
+                        e.stopPropagation(); // Previne fechar o modal do barbeiro
+                        openStyleDetails(item.type, item.src);
+                    });
+                    
+                    grid.appendChild(el);
                 });
 
                 barberModal.style.display = "flex";
@@ -450,8 +501,8 @@
         });
 
         closeBarberModal.onclick = () => barberModal.style.display = "none";
+        closeModal.onclick = () => modal.style.display = "none";
         
-        // Update general window click to handle both modals
         window.onclick = (event) => {
             if (event.target == modal) modal.style.display = "none";
             if (event.target == barberModal) barberModal.style.display = "none";
