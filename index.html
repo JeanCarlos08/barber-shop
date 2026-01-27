@@ -283,6 +283,21 @@
         </div>
     </footer>
 
+    <!-- Barbers Portfolio Modal -->
+    <div id="barber-modal" class="modal">
+        <div class="modal-content portfolio-modal">
+            <span class="close-barber-modal">&times;</span>
+            <div class="modal-portfolio-header">
+                <h2 id="barber-name" class="highlight">NOME DO MESTRE</h2>
+                <p id="barber-specialty"></p>
+            </div>
+            <div class="portfolio-grid" id="barber-portfolio-items">
+                <!-- Items will be injected by JS -->
+            </div>
+            <a href="#contact" class="btn btn-primary modal-btn">QUERO CORTAR COM ESTE MESTRE</a>
+        </div>
+    </div>
+
     <!-- Service Detail Modal -->
     <div id="service-modal" class="modal">
         <div class="modal-content">
@@ -363,9 +378,56 @@
             });
         });
 
-        closeModal.onclick = () => modal.style.display = "none";
+        // Data for Barbers Portfolio
+        const barberData = {
+            "marcos": {
+                name: "MARCOS 'THE ACE'",
+                specialty: "Especialista em Fade & Barba",
+                portfolio: ["imagem/gallery_warm_fade.jpg", "imagem/low_fade_custom.jpg", "assets/afro_fade_1769035226942.png"]
+            },
+            "felipe": {
+                name: "FELIPE 'GOLDEN HANDS'",
+                specialty: "Mestre em Cortes Afro & Texturização",
+                portfolio: ["assets/afro_twists_1769035242961.png", "assets/afro_waves_1769035258742.png", "imagem/gallery_action_brush.jpg"]
+            },
+            "ricardo": {
+                name: "RICARDO 'BOSS'",
+                specialty: "Visagismo & Consultoria de Estilo",
+                portfolio: ["imagem/pexels-thgusstavo-2881253.jpg", "assets/soccer_geometric_1769035288447.png", "assets/soccer_mohawk_1769035304234.png"]
+            }
+        };
+
+        const barberModal = document.getElementById("barber-modal");
+        const closeBarberModal = document.querySelector(".close-barber-modal");
+
+        document.querySelectorAll('.team-card').forEach(card => {
+            card.style.cursor = "pointer";
+            card.addEventListener('click', () => {
+                const nameKey = card.querySelector('h3').innerText.split(' ')[0].toLowerCase();
+                const data = barberData[nameKey];
+                
+                document.getElementById("barber-name").innerText = data.name;
+                document.getElementById("barber-specialty").innerText = data.specialty;
+                
+                const grid = document.getElementById("barber-portfolio-items");
+                grid.innerHTML = "";
+                data.portfolio.forEach(imgSrc => {
+                    const img = document.createElement('div');
+                    img.className = "portfolio-item";
+                    img.style.backgroundImage = `url('${imgSrc}')`;
+                    grid.appendChild(img);
+                });
+
+                barberModal.style.display = "flex";
+            });
+        });
+
+        closeBarberModal.onclick = () => barberModal.style.display = "none";
+        
+        // Update general window click to handle both modals
         window.onclick = (event) => {
             if (event.target == modal) modal.style.display = "none";
+            if (event.target == barberModal) barberModal.style.display = "none";
         };
     </script>
   </body>
