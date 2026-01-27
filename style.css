@@ -1169,4 +1169,66 @@ ul {
         bottom: 1rem;
         margin-top: 1rem;
     }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .section-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .service-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .service-card p {
+        font-size: 0.9rem;
+    }
+
+    .service-card .price {
+        font-size: 1.1rem;
+    }
+
+    .team-info h3 {
+        font-size: 1.2rem;
+    }
+
+    .team-info span {
+        font-size: 0.8rem;
+    }
+
+    .testimonial-card p {
+        font-size: 0.9rem;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+    }
+
+    /* Modal Mobile Font Adjustments */
+    #modal-title {
+        font-size: 1.5rem;
+    }
+
+    .modal-history {
+        font-size: 0.85rem;
+    }
+
+    .modal-stats h3,
+    .modal-celebrities h3 {
+        font-size: 0.8rem;
+    }
+
+    .modal-celebrities p {
+        font-size: 1rem;
+    }
+
+    #modal-stat-text {
+        font-size: 0.75rem;
+    }
+
+    .nav-list a {
+        font-size: 0.75rem;
+    }
 }
